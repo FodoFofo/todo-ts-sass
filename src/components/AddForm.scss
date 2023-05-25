@@ -1,0 +1,42 @@
+.add-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: auto;
+    background-color: #f48249;
+    padding: 1em;
+    border-radius: 1em;
+    margin: 20px;
+
+    label {
+        font-weight: 700;
+    }
+
+    input, 
+    textarea {
+        min-width: 200px;
+    }    
+    
+    input {
+        margin: 5px 0;
+    }
+
+    textarea {
+        max-width: 900px;
+    }
+
+    input[type="submit"], input[type="button"] {
+        background-color: #d2ec69;
+        color: #4aaddb;
+        box-shadow: 0 0 20px #4aaddb;
+        border: none;
+        border-radius: 1em;
+        padding: 5px 10px;
+        font-size: 1em;
+        font-weight: 800;
+        text-shadow: -1px 1px 1px #000, 0 2px 2px #f23409;
+        cursor: pointer; 
+    }
+
+}

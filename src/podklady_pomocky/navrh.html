@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navrh.css">
+</head>
+<body>
+    <main> 
+        <div class="component app">
+            <small>App</small>
+
+            <div class="component main">
+                <small>Main</small>
+
+                <div class="component tasks">
+                    <small>Tasks</small>
+                    <h1>Zoznam úlôh</h1>
+
+                    <div class="component task">
+                        <small>Task</small>
+                        <h1>Úloha 1</h1>
+                        <p>Popis 1</p>
+                        <button>Upraviť</button>  
+                        <button>Vymazať</button>
+                    </div>
+                    <div class="component task">
+                        <small>Task</small>
+                        <h1>Úloha 2</h1>
+                        <p>Popis 2</p>
+                        <button>Upraviť</button>  
+                        <button>Vymazať</button>
+                    </div>
+                    <div class="component task">
+                        <small>Task</small>
+                        <h1>Úloha 3</h1>
+                        <p>Popis 3</p>
+                        <button>Upraviť</button>  
+                        <button>Vymazať</button>
+                    </div>
+                    <div class="component task">
+                        <small>Task</small>
+                        <h1>Úloha 4</h1>
+                        <p>Popis 4</p>
+                        <button>Upraviť</button>  
+                        <button>Vymazať</button>
+                    </div>
+                    <div class="component task">
+                        <small>Task</small>
+                        <h1>Úloha 5</h1>
+                        <p>Popis 5</p>
+                        <button>Upraviť</button>  
+                        <button>Vymazať</button>
+                    </div>
+
+                    <button>Nová úloha</button>
+                </div>
+
+                <div class="component add-form">
+                    <small>AddForm</small> - dočane, bude buď skryté, alebo spravené cez router, a poklinutí na pridať úlohu sa zobrazí - porozmýšlaľ nad využítím aj ako úprava úlohy
+                    <form>
+                        <label>Názov úlohy:</label>
+                        <input type="text" />
+                        <label >Popis úlohy:</label>
+                        <textarea></textarea>
+                        <label>Kategória:</label>
+                        <input type="text" />
+                        <label htmlFor="list">List:</label>
+                        <input type="text" />
+                        <label>Poznámka:</label>
+                        <textarea></textarea>
+                        <label >Termín:</label>
+                        <input type="date" />
+                        <input type="submit" value="Pridať" />
+                    </form>
+                </div>
+
+                <footer>
+                    © Foďo 2023
+                </footer> 
+            </div>
+        </div>
+        <h3>Úlohy / poznámky:</h3>
+        <p class="poznamka">Nejaké poznámky sú aj v onenote</p>
+        <p class="uloha">Dorobiť editáciu úlôh - komunikácia z DB</p>
+        <p class="uloha">Dorobiť pri úlôh - komunikácia z DB ???? tu som asi zabudol zapísať myšlienku</p>
+        <p class="uloha">v DB spraviť sekciu pre kategórie, a s tadiaľ ťahať zoznam, a tento zobrazovať pri pridávaní nových úloh a editácii - da sa to spraviť aj cez input typu checkbox</p>
+    </main> 
+    <main class="pokusy">
+
+        <select name="pets" id="pet-select" >
+            <option value="">--Please choose an option--</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select> 
+        <hr>
+        <form >
+            <input type="checkbox" name="aas" id="dda">jeden <br>
+            <input type="checkbox" name="aas" id="dda">dva <br>
+            <input type="checkbox" name="aas" id="dda">tri <br>
+            <input type="checkbox" name="aas" id="dda">štyri <br>
+        </form>
+
+        <ul class="checkbox-list">
+            <li><input type="checkbox" name="jeden">jeden</li>
+            <li><input type="checkbox" name="jeden">dva</li>
+            <li><input type="checkbox" name="jeden">tri</li>
+            <li><input type="checkbox" name="jeden">štyri</li>
+        </ul>
+        <button>OK</button>
+
+    </main>
+</body>
+</html>

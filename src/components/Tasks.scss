@@ -1,0 +1,27 @@
+.tasks{
+    background-color: #a9a6a6;
+    padding: 0.4em 0.8em;
+    border-radius: 1em;
+    margin: 10px 20px ;
+
+    h1 {
+        font-size: 1em;
+    }
+
+    button {
+        background-color: #d2ec69;
+        color: #4aaddb;
+        box-shadow: 0 0 20px #4aaddb;
+        border: none;
+        border-radius: 1em;
+        padding: 5px 10px;
+        font-size: 1em;
+        font-weight: 800;
+        text-shadow: -1px 1px 1px #000, 0 2px 2px #f23409;
+        cursor: pointer;        
+    }
+}
+
+.hidden {
+    display: none;
+}
