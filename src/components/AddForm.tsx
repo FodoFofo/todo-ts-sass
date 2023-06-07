@@ -1,3 +1,5 @@
+import { useForm } from 'react-hook-form';
+
 // style
 import './AddForm.scss'
 import { TaskType } from '../types';
@@ -44,6 +46,7 @@ const checkData = () => {
 
 const AddForm = (props: Props) => {
   const {name, description, category, list, term, state, note} = props.formData
+  const {register, handleSubmit, formState: {errors}} = useForm()
   
   const formSubmit = (e: any) => {
     e.preventDefault()
@@ -92,30 +95,37 @@ const AddForm = (props: Props) => {
 
   const ClearForm = () => {
     props.setFormData({
-      id : "",
-      created : "",
-      name : "",
-      description : "",
-      category : "",
-      list : "",
-      term : "",
-      state : "",
-      note : ""
+      id : '',
+      created : '',
+      name : '',
+      description : '',
+      category : '',
+      list : '',
+      term : '',
+      state : '',
+      note : ''
     })
   }
 
   return (
-    <form onSubmit={ formSubmit } className='add-form'>
-      <label htmlFor="termin">Názov úlohy:</label>
+    <form onSubmit={ handleSubmit(formSubmit) } className='add-form' noValidate>
+      <label htmlFor='nazov'>Názov úlohy:</label>
       <input
         id='nazov'
-        type="text"
+        type='text'
+        {...register('nazov', {
+          required: {
+            value:true,
+            message: 'Username is required'
+          }
+        })}
         onChange={ (e) => props.setFormData({...props.formData, name: e.target.value})}
         value={name}
         placeholder='Názov'
       />
+      {/*<p className="error">{errors.nazov?.message}</p>*/}
 
-      <label htmlFor="termin">Popis úlohy:</label>
+      <label htmlFor="popis">Popis úlohy:</label>
       <textarea
         id='popis'
         onChange={(e) => props.setFormData({...props.formData, description: e.target.value})}
