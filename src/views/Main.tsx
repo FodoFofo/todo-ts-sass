@@ -21,7 +21,6 @@ const Main = () => {
     name : "",
     description : "",
     category : "",
-    list : "",
     term : "",
     state : "",
     note : ""

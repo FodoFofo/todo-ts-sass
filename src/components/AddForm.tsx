@@ -43,7 +43,7 @@ const checkData = () => {
 }
 
 const AddForm = (props: Props) => {
-  const {name, description, category, list, term, state, note} = props.formData
+  const {name, description, category, term, state, note} = props.formData
   
   const formSubmit = (e: any) => {
     e.preventDefault()
@@ -55,7 +55,6 @@ const AddForm = (props: Props) => {
           name,
           description,
           category,
-          list,
           note,
           term: formatujDatum(term),
           state
@@ -69,7 +68,6 @@ const AddForm = (props: Props) => {
           name,
           description,
           category,
-          list,
           note,
           term: formatujDatum(term),
           state,
@@ -97,7 +95,6 @@ const AddForm = (props: Props) => {
       name : "",
       description : "",
       category : "",
-      list : "",
       term : "",
       state : "",
       note : ""
@@ -130,15 +127,6 @@ const AddForm = (props: Props) => {
         onChange={(e) => props.setFormData({...props.formData, category: e.target.value})}
         value={category}
         placeholder='Kategória' 
-      />
-
-      <label htmlFor="list">List:</label>
-      <input
-        id='list'
-        type="text" 
-        onChange={(e) => props.setFormData({...props.formData, list: e.target.value})}
-        value={list}
-        placeholder='List (toto neviem čo som myslel)' 
       />
 
       <label htmlFor="poznamka">Poznámka:</label>
