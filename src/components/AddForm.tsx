@@ -98,7 +98,6 @@ const AddForm = (props: Props) => {
       name : '',
       description : '',
       category : '',
-      list : '',
       term : '',
       state : '',
       note : ''
