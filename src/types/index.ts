@@ -4,7 +4,6 @@ export interface TaskType {
     name: string,
     description: string,
     category: string,
-    list: string,
     term: string,
     state: string,
     note: string
