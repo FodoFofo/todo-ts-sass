@@ -1,8 +1,17 @@
 import { useForm } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 
 // style
 import './AddForm.scss'
 import { TaskType } from '../types';
+
+type FormValues = {
+  nazov: string
+  popis: string
+  kategoria: string
+  poznamka: string
+  termin: string
+}
 
 const odstranDiakritiku = (text: string) => {
   return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -46,7 +55,7 @@ const checkData = () => {
 
 const AddForm = (props: Props) => {
   const {name, description, category, term, state, note} = props.formData
-  const {register, handleSubmit, formState: {errors}} = useForm()
+  const {register, control, handleSubmit, formState: {errors}} = useForm()
   
   const formSubmit = (e: any) => {
     e.preventDefault()
@@ -105,59 +114,66 @@ const AddForm = (props: Props) => {
   }
 
   return (
-    <form onSubmit={ handleSubmit(formSubmit) } className='add-form' noValidate>
-      <label htmlFor='nazov'>Názov úlohy:</label>
-      <input
-        id='nazov'
-        type='text'
-        {...register('nazov', {
-          required: {
-            value:true,
-            message: 'Username is required'
-          }
-        })}
-        onChange={ (e) => props.setFormData({...props.formData, name: e.target.value})}
-        value={name}
-        placeholder='Názov'
-      />
-      {/*<p className="error">{errors.nazov?.message}</p>*/}
+    <div>
+      <form onSubmit={ handleSubmit(formSubmit) } className='add-form' noValidate>
+        <label htmlFor='nazov'>Názov úlohy:</label>
+        <input
+          id='nazov'
+          type='text'
+          {...register('nazov', {
+            required: {
+              value:true,
+              message: 'Názov je potrebne zadať'
+            }
+          })}
+          onChange={ (e) => props.setFormData({...props.formData, name: e.target.value})}
+          value={name}
+          placeholder='Názov'
+        />
+        {/*<p className="error">{errors.nazov?.message}</p>*/}
 
-      <label htmlFor="popis">Popis úlohy:</label>
-      <textarea
-        id='popis'
-        onChange={(e) => props.setFormData({...props.formData, description: e.target.value})}
-        value={description}
-        placeholder='Popis' 
-      />
+        <label htmlFor="popis">Popis úlohy:</label>
+        <textarea
+          id='popis'
+          {...register('popis')}
+          onChange={(e) => props.setFormData({...props.formData, description: e.target.value})}
+          value={description}
+          placeholder='Popis' 
+        />
 
-      <label htmlFor="kategoria">Kategória:</label>
-      <input
-        id='kategoria'
-        type="text" 
-        onChange={(e) => props.setFormData({...props.formData, category: e.target.value})}
-        value={category}
-        placeholder='Kategória' 
-      />
+        <label htmlFor="kategoria">Kategória:</label>
+        <input
+          id='kategoria'
+          type="text" 
+          {...register('kategoria')}
+          onChange={(e) => props.setFormData({...props.formData, category: e.target.value})}
+          value={category}
+          placeholder='Kategória' 
+        />
 
-      <label htmlFor="poznamka">Poznámka:</label>
-      <textarea
-        id='poznamka'
-        onChange={(e) => props.setFormData({...props.formData, note: e.target.value})}
-        value={note}
-        placeholder='Poznámka' 
-      />
+        <label htmlFor="poznamka">Poznámka:</label>
+        <textarea
+          id='poznamka'
+          {...register('poznamka')}
+          onChange={(e) => props.setFormData({...props.formData, note: e.target.value})}
+          value={note}
+          placeholder='Poznámka' 
+        />
 
-      <label htmlFor="termin">Termín:</label>
-      <input
-        id='termin' 
-        type="date" 
-        onChange={(e) => props.setFormData({...props.formData, term: e.target.value})}
-        value={term}
-      />
-      
-      <input type="submit" value="Pridať" />
-      <input type="button" value="Zrušiť" onClick={Cancel}/>
-    </form>
+        <label htmlFor="termin">Termín:</label>
+        <input
+          id='termin' 
+          type="date" 
+          {...register('termin')}
+          onChange={(e) => props.setFormData({...props.formData, term: e.target.value})}
+          value={term}
+        />
+        
+        <input type="submit" value="Pridať" />
+        <input type="button" value="Zrušiť" onClick={Cancel}/>
+      </form>
+      <DevTool control={control}/>
+    </div> 
   )
 }
 
