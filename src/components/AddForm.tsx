@@ -8,14 +8,14 @@ const odstranDiakritiku = (text: string) => {
   return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
-// vráti aktuálny dátum
+// ---vráti aktuálny dátum---
 const dajDatum = () => {
   const teraz = new Date()
   
   return (
     teraz.getDate() + '.' + (teraz.getMonth() + 1) + '.' + teraz.getFullYear()
   )
-}
+}// -------------------------
 
 // formátuje dátum, vstupný dátum musí byť vo formáte yyyy-mm-dd, namiesto '-' môže byť aj iný znak, ale iba jeden
 const formatujDatum = (datum: string) => {
@@ -26,7 +26,7 @@ const formatujDatum = (datum: string) => {
   }
 
   return novyDatum
-}
+}// -------------------------
 
 type Props = {
   pridajUlohu: (data: object) => void
