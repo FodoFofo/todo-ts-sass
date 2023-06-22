@@ -8,3 +8,11 @@ export interface TaskType {
     state: string,
     note: string
 }
+
+export type FormValues = {
+    nazov: string
+    popis: string
+    kategoria: string
+    poznamka: string
+    termin: string
+  }
