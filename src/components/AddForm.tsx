@@ -1,17 +1,8 @@
 import { useForm } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
 
 // style
 import './AddForm.scss'
-import { TaskType } from '../types';
-
-type FormValues = {
-  nazov: string
-  popis: string
-  kategoria: string
-  poznamka: string
-  termin: string
-}
+import { TaskType, FormValues } from '../types';
 
 const odstranDiakritiku = (text: string) => {
   return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -24,17 +15,6 @@ const dajDatum = () => {
   return (
     teraz.getDate() + '.' + (teraz.getMonth() + 1) + '.' + teraz.getFullYear()
   )
-}// -------------------------
-
-// formátuje dátum, vstupný dátum musí byť vo formáte yyyy-mm-dd, namiesto '-' môže byť aj iný znak, ale iba jeden
-const formatujDatum = (datum: string) => {
-  let novyDatum = ""
-
-  if(datum) {
-    novyDatum = datum.slice(-2) + "." + datum.slice(5,7) + "." +  datum.slice(0,4)
-  }
-
-  return novyDatum
 }// -------------------------
 
 type Props = {
@@ -67,12 +47,11 @@ const AddForm = (props: Props) => {
           description,
           category,
           note,
-          term: formatujDatum(term),
+          term,
           state
         }
   
         props.upravUlohu(novaUloha, props.formData.id)
-        // TODO: Doplniť editáciu úlohy, ktorú fciu má spustiť, fcia bude v Main
   
       } else {
         const novaUloha = {
@@ -80,7 +59,7 @@ const AddForm = (props: Props) => {
           description,
           category,
           note,
-          term: formatujDatum(term),
+          term,
           state,
           created: dajDatum(),
         }
@@ -187,7 +166,6 @@ const AddForm = (props: Props) => {
         <input type="submit" value="Pridať" />
         <input type="button" value="Zrušiť" onClick={Cancel}/>
       </form>
-      <DevTool control={control}/>
     </div> 
   )
 }
