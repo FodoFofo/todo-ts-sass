@@ -35,7 +35,7 @@ const checkData = () => {
 
 const AddForm = (props: Props) => {
   const {name, description, category, term, state, note} = props.formData
-  const {register, control, handleSubmit, formState: {errors}} = useForm<FormValues>()
+  const {register, handleSubmit, formState: {errors}} = useForm<FormValues>()
   
   const formSubmit = (data: FormValues) => {
     
