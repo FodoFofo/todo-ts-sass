@@ -6,14 +6,14 @@ import './Tasks.scss'
 type Props = {
   tasks: TaskType[]
   deleteTask: (id:string) =>void
-  startUpdating: (data: TaskType) => void
+  startUpdating: (data: TaskType) => TaskType
   setPridatUlohu: () => void
 }
 
 const Tasks = (props: Props) => {
   
   // pridanie novej úhlohy
-  const novaUloha = (e: any) => {
+  const novaUloha = () => {
     props.setPridatUlohu();
   }
 
