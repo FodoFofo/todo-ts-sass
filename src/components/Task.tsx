@@ -6,8 +6,8 @@ import { TaskType } from '../types'
 
 type Props = {
   task: TaskType
-  deleteTask: (id:string) =>void
-  update: (data: TaskType) =>void
+  deleteTask: (id:string) => void
+  update: (data: TaskType) => void
 }
 
 const Task = (props: Props) => {

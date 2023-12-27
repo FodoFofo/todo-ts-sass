@@ -6,7 +6,7 @@ import './Tasks.scss'
 type Props = {
   tasks: TaskType[]
   deleteTask: (id:string) =>void
-  startUpdating: (data: TaskType) => TaskType
+  startUpdating: (data: TaskType) => void
   setPridatUlohu: () => void
 }
 
